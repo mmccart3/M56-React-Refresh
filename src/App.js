@@ -16,11 +16,18 @@ function App() {
   return (
     <div className="App">
       <h1>List</h1>
+      <button onClick={(event) => {setToggle(!toggle);console.log(toggle)}}>Press me</button>
+      <br></br>
       {imageArray.map( (item, index) => { 
         return(
           <div>
-              {/* <button onClick={(event) => {setToggle(false)}}/> */}
+
+              {toggle &&
+              <div> 
               <img src={item.download_url} width={"50%"}/>
+              <h2>{item.author}</h2>
+              </div>
+              }
           </div>
         )
       })}
