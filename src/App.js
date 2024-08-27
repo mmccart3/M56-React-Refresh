@@ -21,13 +21,10 @@ function App() {
       {imageArray.map( (item, index) => { 
         return(
           <div>
-
-              {toggle &&
-              <div> 
+              {toggle && <div> 
               <img src={item.download_url} width={"50%"}/>
               <h2>{item.author}</h2>
-              </div>
-              }
+              </div>}
           </div>
         )
       })}
