@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Register from './components/registerUser';
 import Login from './components/login';
+import ListUsers from './components/listUsers';
 
 function App() {
   // Normal JavaScript goes here
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <Register/>
       <Login />
+      <ListUsers />
       <h1>List</h1>
       <button onClick={(event) => {setToggle(!toggle);console.log(toggle)}}>Press me</button>
       <br></br>

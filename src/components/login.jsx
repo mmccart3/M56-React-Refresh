@@ -1,4 +1,5 @@
 import { useState} from 'react';
+import writecookie from '../utils/writecookie';
 
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
     const output = await response.json();
     console.log(response);
     console.log(output.token);
+    writecookie("jwt_token",output.token,14)
   }
 
     return(
