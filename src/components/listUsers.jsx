@@ -24,11 +24,19 @@ const ListUsers = () => {
         }
       }
     );
+    console.log(response.status);
     const output = await response.json();
-    console.log(output.userlist);
-    setUserList(output.userlist);
-    setListOn(true);
-    }
+    console.log(output);
+    if (response.status === 500) {
+        console.log("not loaded");
+        setUserList([]);
+        setListOn(false);
+        // return user to login screen or prompt user to logon
+    } else {
+        console.log(response.status)
+        setUserList(output.userlist);
+        setListOn(true);
+    }}
 
     return(
     <div>
@@ -38,17 +46,23 @@ const ListUsers = () => {
     <button onClick={clickHandler2}>Switch off List</button>
     <hr></hr>
     <div>
+      {listOn ? <>
+    
         <h1>List of Users</h1>
         {userList.map((item, index) => {
             return(
             <>
-            {listOn && <>
             <h2>User ID = {item.username}</h2>
             <h2>Email = {item.email}</h2>
-            </>
-        }
-            </>)
-        })}
+            </> )})}
+        </>
+        :     
+        <>
+        <h1>Please Login again</h1>
+        </>
+}
+          
+        
     </div>
     <hr></hr>
   </div>
